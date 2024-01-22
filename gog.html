@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivative Calculator</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 50px;
+            color: #ffffff;
+            font-size: 50px;
+            
+        }
+        #expression{
+            background-color: #2600ff00;
+            color: rgb(255, 255, 255);
+          border-radius: 7px;
+          height: 60px;
+          width: 500px;
+          font-size: 30px;
+        }
+        #ff{
+border:12px ; 
+          background-color: rgb(87, 87, 218);  
+          font-size: 30px;
+          border-radius: 19px;
+          font-family: komika axis, sans-serif;
+          color: #000000;
+        }
+    </style>
+</head>
+<body background="hh.jpg"  >
+    <h1 id="hh">حساب الإشتقاقية</h1>
+  
+    
+    
+    <input type="text" id="expression" placeholder="e.g., x^2 + 3x + 1">
+    <label for="expression">:أدخل دالة رياضية</label>
+    <br>
+    <br>
+    <button onclick="calculateDerivative()" id="ff">Calculate Derivative</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateDerivative() {
+            const expressionInput = document.getElementById('expression');
+            const resultElement = document.getElementById('result');
+
+            try {
+                const expression = expressionInput.value;
+                const derivative = math.derivative(expression, 'x');
+                const simplifiedDerivative = math.simplify(derivative);
+
+                resultElement.textContent = `  ${simplifiedDerivative} = ${expression} الدالة المشتقة ل `;
+            } catch (error) {
+                resultElement.textContent = 'Invalid expression. Please try again.';
+            }
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.0/math.js"></script>
+</body>
+</html>
+
